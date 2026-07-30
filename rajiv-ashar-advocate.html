@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajiv Ashar | Advocate — Civil & Property Law, Mumbai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a;
+    --paper:#f1ece1;
+    --paper-dark:#e7dfcd;
+    --brass:#9c7a34;
+    --brass-light:#c9a44f;
+    --seal:#7c2e2e;
+    --line:rgba(28,43,58,0.18);
+    --text-soft:rgba(28,43,58,0.68);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  /* Header / seal watermark texture */
+  .paper-texture{
+    background-image:
+      repeating-linear-gradient(0deg, rgba(28,43,58,0.015) 0px, rgba(28,43,58,0.015) 1px, transparent 1px, transparent 3px);
+  }
+
+  header.top{
+    position:sticky;top:0;z-index:50;
+    background:rgba(241,236,225,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:1080px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Source Serif 4',serif;font-weight:600;font-size:0.95rem;
+    color:var(--brass);
+  }
+  .brand-name{font-family:'Source Serif 4',serif;font-weight:600;font-size:1.05rem;}
+  .brand-sub{font-size:0.68rem;color:var(--text-soft);letter-spacing:0.04em;}
+  nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;font-size:0.88rem;}
+  nav a{text-decoration:none;color:var(--ink);opacity:0.75;transition:opacity .2s;}
+  nav a:hover{opacity:1;}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink);}
+
+  @media (max-width:820px){
+    nav ul{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;background:var(--paper);
+      padding:20px 32px;gap:18px;border-bottom:1px solid var(--line);
+      display:none;
+    }
+    nav ul.open{display:flex;}
+    .nav-toggle{display:block;}
+  }
+
+  /* Hero */
+  .hero{
+    padding:110px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.3fr 0.9fr;gap:60px;align-items:center;}
+  @media (max-width:900px){.hero .wrap{grid-template-columns:1fr;} .hero{padding:70px 0 60px;}}
+
+  .hero h1{font-size:clamp(2.3rem,4.2vw,3.4rem);line-height:1.08;margin:18px 0 22px;}
+  .hero h1 em{font-style:italic;color:var(--seal);}
+  .hero p.lead{font-size:1.08rem;color:var(--text-soft);max-width:46ch;margin-bottom:32px;}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;font-size:0.9rem;font-weight:500;
+    border-radius:2px;text-decoration:none;cursor:pointer;border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--ink);color:var(--paper);}
+  .btn-primary:hover{box-shadow:0 6px 18px rgba(28,43,58,0.25);}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);}
+
+  /* Seal / stamp signature element */
+  .seal-frame{
+    position:relative;
+    aspect-ratio:1/1;
+    max-width:340px;
+    margin:0 auto;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .seal-ring{
+    position:absolute;inset:0;
+    border-radius:50%;
+    border:2px solid var(--seal);
+    opacity:0.85;
+  }
+  .seal-ring::before{
+    content:"";
+    position:absolute;inset:10px;
+    border-radius:50%;
+    border:1px dashed var(--brass);
+  }
+  .seal-text{
+    position:absolute;inset:0;
+  }
+  .seal-center{
+    text-align:center;
+    font-family:'Source Serif 4',serif;
+  }
+  .seal-center .initials{font-size:3.6rem;font-weight:700;color:var(--seal);line-height:1;}
+  .seal-center .est{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:var(--brass);text-transform:uppercase;}
+  .seal-rotate-text{
+    animation:spin 26s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .seal-rotate-text{animation:none;} }
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+  /* Section shared */
+  section{padding:88px 0;border-top:1px solid var(--line);}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:10px;}
+  .section-head p{color:var(--text-soft);max-width:44ch;margin:0;}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;}
+  @media (max-width:820px){.about-grid{grid-template-columns:1fr;}}
+  .fact-list{border-top:1px solid var(--line);}
+  .fact{
+    display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-size:0.92rem;
+  }
+  .fact .label{color:var(--text-soft);}
+  .fact .val{font-family:'JetBrains Mono',monospace;font-weight:500;}
+  .about-body p{margin:0 0 18px;color:var(--text-soft);font-size:1.02rem;}
+  .about-body p:last-child{margin-bottom:0;}
+
+  /* Practice areas — filed like case-register entries */
+  .register{border-top:1px solid var(--line);}
+  .entry{
+    display:grid;grid-template-columns:70px 1fr;gap:24px;
+    padding:26px 0;border-bottom:1px solid var(--line);
+    transition:background .2s ease;
+  }
+  .entry:hover{background:rgba(156,122,52,0.06);}
+  .entry .file-no{font-family:'JetBrains Mono',monospace;color:var(--brass);font-size:0.85rem;padding-top:4px;}
+  .entry h3{font-size:1.18rem;margin-bottom:6px;}
+  .entry p{margin:0;color:var(--text-soft);font-size:0.95rem;max-width:60ch;}
+
+  /* Testimonials */
+  .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media (max-width:900px){.quote-grid{grid-template-columns:1fr;}}
+  .quote-card{
+    background:var(--paper-dark);
+    border:1px solid var(--line);
+    padding:30px 26px;
+    position:relative;
+  }
+  .quote-card .mark{font-family:'Source Serif 4',serif;font-size:2.4rem;color:var(--brass-light);line-height:1;display:block;margin-bottom:10px;}
+  .quote-card p.text{font-size:0.96rem;color:var(--ink);margin:0 0 18px;}
+  .quote-card .who{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text-soft);letter-spacing:0.03em;}
+  .note-placeholder{
+    margin-top:28px;font-size:0.82rem;color:var(--text-soft);
+    border-left:2px solid var(--brass);padding-left:14px;
+  }
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  @media (max-width:820px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .contact-item:first-child{border-top:1px solid var(--line);}
+  .contact-item .ic{
+    width:36px;height:36px;border-radius:50%;border:1px solid var(--brass);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--brass);font-size:0.95rem;
+  }
+  .contact-item .lbl{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-soft);margin-bottom:4px;}
+  .contact-item .v{font-size:1rem;}
+  form.mini{display:flex;flex-direction:column;gap:16px;}
+  form.mini label{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-soft);margin-bottom:6px;display:block;}
+  form.mini input, form.mini textarea{
+    width:100%;background:var(--paper-dark);border:1px solid var(--line);
+    padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.95rem;color:var(--ink);
+    border-radius:2px;
+  }
+  form.mini input:focus, form.mini textarea:focus{outline:2px solid var(--brass);outline-offset:1px;}
+  form.mini textarea{resize:vertical;min-height:100px;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:34px 0;font-size:0.82rem;color:var(--text-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+  .placeholder-flag{
+    background:rgba(124,46,46,0.08);color:var(--seal);
+    font-family:'JetBrains Mono',monospace;font-size:0.68rem;
+    padding:2px 8px;border-radius:2px;margin-left:8px;
+  }
+</style>
+</head>
+<body class="paper-texture">
+
+<header class="top">
+  <div class="nav-row">
+    <div class="brand">
+      <div class="brand-mark">RA</div>
+      <div>
+        <div class="brand-name">Rajiv Ashar</div>
+        <div class="brand-sub">ADVOCATE, MUMBAI</div>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">&#9776;</button>
+    <nav>
+      <ul id="navlinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#practice">Practice Areas</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="border-top:none;">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Civil &amp; Property Law — Mumbai</span>
+      <h1>Property disputes settled<br> with <em>precision</em>, not delay.</h1>
+      <p class="lead">I'm Rajiv Ashar, an advocate based in Goregaon West, practising civil and property law across Mumbai. Every title, tenancy, or partition matter gets the same close, personal attention — from first reading to final decree.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Discuss your matter</a>
+        <a href="#practice" class="btn btn-ghost">View practice areas</a>
+      </div>
+    </div>
+    <div class="seal-frame" aria-hidden="true">
+      <div class="seal-ring"></div>
+      <svg class="seal-rotate-text" width="340" height="340" viewBox="0 0 340 340" style="position:absolute;">
+        <defs>
+          <path id="circlePath" d="M 170,170 m -130,0 a 130,130 0 1,1 260,0 a 130,130 0 1,1 -260,0"/>
+        </defs>
+        <text font-family="JetBrains Mono, monospace" font-size="11.5" letter-spacing="3" fill="#9c7a34">
+          <textPath href="#circlePath" startOffset="0%">
+            &#8226; ADVOCATE &#8226; HIGH COURT OF BOMBAY &#8226; CIVIL &amp; PROPERTY &#8226; MUMBAI &#8226;
+          </textPath>
+        </text>
+      </svg>
+      <div class="seal-center">
+        <div class="initials">RA</div>
+        <div class="est">Est. Practice 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="eyebrow">About</span>
+      <h2 style="margin-bottom:24px;">A focused practice, built on responsiveness.</h2>
+      <div class="fact-list">
+        <div class="fact"><span class="label">Based in</span><span class="val">Goregaon West, Mumbai</span></div>
+        <div class="fact"><span class="label">Practising since</span><span class="val">2023 (3 years)</span></div>
+        <div class="fact"><span class="label">Core areas</span><span class="val">Civil &amp; Property</span></div>
+        <div class="fact"><span class="label">Client style</span><span class="val">Direct, personal</span></div>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>Property and civil matters move slowly when no one is pushing them forward. My practice is built to do exactly that — clear communication, realistic timelines, and a lawyer who actually picks up the phone.</p>
+      <p>I handle everything from title verification before a purchase, to long-running partition and tenancy disputes, to drafting the agreements that prevent disputes in the first place. Every matter is reviewed personally; nothing is handed off and forgotten.</p>
+      <p>Being early in practice means one thing to clients: I'm building my name on getting your matter right, not coasting on a reputation I already have. That shows up in how closely I stay on a file.</p>
+    </div>
+  </div>
+</section>
+
+<section id="practice">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Practice Areas</span>
+        <h2>Filed under civil &amp; property.</h2>
+      </div>
+      <p>Each matter below is handled end-to-end — advice, drafting, filing, and representation.</p>
+    </div>
+    <div class="register">
+      <div class="entry">
+        <div class="file-no">01</div>
+        <div><h3>Property Title Verification</h3><p>Due diligence before purchase or investment — chain of title, encumbrance checks, society and revenue record verification.</p></div>
+      </div>
+      <div class="entry">
+        <div class="file-no">02</div>
+        <div><h3>Partition &amp; Inheritance Disputes</h3><p>Family property division, succession disputes, and partition suits handled with an eye toward practical, lasting settlement.</p></div>
+      </div>
+      <div class="entry">
+        <div class="file-no">03</div>
+        <div><h3>Tenancy &amp; Rent Matters</h3><p>Eviction proceedings, rent disputes, and landlord-tenant matters under Maharashtra rent control law.</p></div>
+      </div>
+      <div class="entry">
+        <div class="file-no">04</div>
+        <div><h3>Sale Deeds &amp; Agreements</h3><p>Drafting and vetting sale deeds, leave-and-license agreements, gift deeds, and development agreements.</p></div>
+      </div>
+      <div class="entry">
+        <div class="file-no">05</div>
+        <div><h3>Civil Litigation</h3><p>Representation in civil suits before Mumbai courts — recovery matters, injunctions, and specific performance claims.</p></div>
+      </div>
+      <div class="entry">
+        <div class="file-no">06</div>
+        <div><h3>Society &amp; Redevelopment Matters</h3><p>Advice to housing societies and members on redevelopment agreements, conveyance, and internal disputes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Testimonials</span>
+        <h2>What clients have said.</h2>
+      </div>
+    </div>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <span class="mark">&#8220;</span>
+        <p class="text">Rajiv stayed on top of our title search and flagged an issue we'd have otherwise missed before purchase.</p>
+        <div class="who">— Property Buyer, Goregaon</div>
+      </div>
+      <div class="quote-card">
+        <span class="mark">&#8220;</span>
+        <p class="text">Clear about timelines from day one, and always reachable when we had questions about the partition suit.</p>
+        <div class="who">— Family Client, Malad</div>
+      </div>
+      <div class="quote-card">
+        <span class="mark">&#8220;</span>
+        <p class="text">Handled our society's redevelopment paperwork carefully and explained every clause in plain language.</p>
+        <div class="who">— Housing Society Committee</div>
+      </div>
+    </div>
+    <p class="note-placeholder">Placeholder quotes<span class="placeholder-flag">EDIT BEFORE PUBLISHING</span> — swap these for real client testimonials once you have a few on record. Keeping made-up quotes live on a public site isn't advisable.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2 style="margin-bottom:24px;">Get in touch.</h2>
+      <div class="contact-item">
+        <div class="ic">&#9742;</div>
+        <div><div class="lbl">Phone</div><div class="v"><a href="tel:+917021767353">+91 70217 67353</a></div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ic">&#9993;</div>
+        <div><div class="lbl">Email</div><div class="v">rajivashar60@gmail.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ic">&#8962;</div>
+        <div><div class="lbl">Office</div><div class="v">Raj Villa CHS, Flat No. 403, Plot No. 317,<br>Road No. 17, Jawahar Nagar,<br>Goregaon West, Mumbai 400104</div></div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Send a message</span>
+      <form class="mini" style="margin-top:18px;" onsubmit="event.preventDefault(); window.location.href='mailto:rajivashar60@gmail.com?subject=Enquiry from ' + encodeURIComponent(document.getElementById('nm').value) + '&body=' + encodeURIComponent(document.getElementById('msg').value + ' \n\nContact: ' + document.getElementById('ph').value);">
+        <div>
+          <label for="nm">Name</label>
+          <input id="nm" type="text" required>
+        </div>
+        <div>
+          <label for="ph">Phone</label>
+          <input id="ph" type="tel" required>
+        </div>
+        <div>
+          <label for="msg">Brief description of your matter</label>
+          <textarea id="msg" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;margin-top:6px;">Send enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;">
+    <span>&copy; 2026 Rajiv Ashar, Advocate. All rights reserved.</span>
+    <span>Goregaon West, Mumbai</span>
+  </div>
+</footer>
+
+</body>
+</html>
